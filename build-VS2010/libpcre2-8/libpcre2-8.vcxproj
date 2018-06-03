@@ -149,6 +149,9 @@
     <ClInclude Include="..\..\src\pcre2_ucp.h" />
     <ClInclude Include="..\..\win32\config.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\win32\libpcre2-8.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
