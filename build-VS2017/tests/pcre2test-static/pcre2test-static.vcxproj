@@ -73,7 +73,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libpcre2-8-static.lib;$(OutDir)libpcre2-16-static.lib;$(OutDir)libpcre2-32-static.lib;$(OutDir)libpcre2-posix-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <StackReserveSize>2500000</StackReserveSize>
+      <StackReserveSize>10000000</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -105,7 +105,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(OutDir)libpcre2-8-static.lib;$(OutDir)libpcre2-16-static.lib;$(OutDir)libpcre2-32-static.lib;$(OutDir)libpcre2-posix-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <StackReserveSize>2500000</StackReserveSize>
+      <StackReserveSize>10000000</StackReserveSize>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
