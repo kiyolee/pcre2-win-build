@@ -70,6 +70,7 @@
       <PreprocessorDefinitions>PCRE2_STATIC;WIN32;_WINDOWS;PCRE2_CODE_UNIT_WIDTH=16;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..\src;..\..\src\sljit;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -85,6 +86,7 @@
       <PreprocessorDefinitions>PCRE2_STATIC;WIN32;_WINDOWS;PCRE2_CODE_UNIT_WIDTH=16;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..\src;..\..\src\sljit;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -100,6 +102,7 @@
       <PreprocessorDefinitions>PCRE2_STATIC;WIN32;_WINDOWS;PCRE2_CODE_UNIT_WIDTH=16;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..\src;..\..\src\sljit;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -115,6 +118,7 @@
       <PreprocessorDefinitions>PCRE2_STATIC;WIN32;_WINDOWS;PCRE2_CODE_UNIT_WIDTH=16;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\win32;..\..\src;..\..\src\sljit;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OmitDefaultLibName>true</OmitDefaultLibName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
