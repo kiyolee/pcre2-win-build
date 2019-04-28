@@ -3869,18 +3869,20 @@ static void move_back(compiler_common *common, jump_list **backtracks, BOOL must
 the subject buffer. Affects STR_PTR and TMP1. Does not modify
 STR_PTR for invalid character sequences. */
 DEFINE_COMPILER;
+#if defined SUPPORT_UNICODE
+#if PCRE2_CODE_UNIT_WIDTH != 32
+struct sljit_jump *jump;
+#endif
+#if PCRE2_CODE_UNIT_WIDTH == 8
+struct sljit_label *label;
+#endif
+#endif
 
 SLJIT_UNUSED_ARG(backtracks);
 SLJIT_UNUSED_ARG(must_be_valid);
 
-#if defined SUPPORT_UNICODE && PCRE2_CODE_UNIT_WIDTH != 32
-struct sljit_jump *jump;
-#endif
-
 #ifdef SUPPORT_UNICODE
 #if PCRE2_CODE_UNIT_WIDTH == 8
-struct sljit_label *label;
-
 if (common->utf)
   {
   if (!must_be_valid && common->invalid_utf)
