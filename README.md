@@ -2,7 +2,7 @@
 
 pcre2 Windows build with Visual Studio.
 
-This version is pcre2-10.32.
+This version is pcre2-10.33.
 
 See win-build-info for general information about the
 win-build effort.
