@@ -5077,7 +5077,21 @@ switch(cmd)
   /* Load a set of binary tables into tables3. */
 
   case CMD_LOADTABLES:
-  rc = open_file(argptr+1, BINARY_INPUT_MODE, &f, "#loadtables");
+  {
+  const char *srcdir = getenv("srcdir");
+  if (srcdir != NULL)
+    {
+      char fn[256];
+      snprintf(fn, sizeof(fn), "%s/%s", srcdir, argptr+1);
+      rc = open_file(fn, BINARY_INPUT_MODE, &f, "#loadtables");
+    }
+  else
+    {
+      rc = PR_ABEND;
+    }
+  }
+  if (rc != PR_OK)
+      rc = open_file(argptr+1, BINARY_INPUT_MODE, &f, "#loadtables");
   if (rc != PR_OK) return rc;
 
   if (tables3 == NULL)
