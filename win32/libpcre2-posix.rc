@@ -26,7 +26,7 @@ BEGIN
       VALUE "FileDescription",	"libpcre2-posix for Windows\0"
       VALUE "FileVersion",	PCRE2_VERSION_STR "\0"
       VALUE "InternalName",	"libpcre2-posix.dll\0"
-      VALUE "LegalCopyright",	"Copyright (c) 1997-2019 University of Cambridge.\0"
+      VALUE "LegalCopyright",	"Copyright (c) 1997-2020 University of Cambridge.\0"
       VALUE "OriginalFilename",	"libpcre2-posix.dll\0"
       VALUE "ProductName",	"PCRE2\0"
       VALUE "ProductVersion",	PCRE2_VERSION_STR "\0"
