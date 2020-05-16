@@ -14032,6 +14032,10 @@ PCRE2_EXP_DEFN int PCRE2_CALL_CONVENTION
 pcre2_jit_compile(pcre2_code *code, uint32_t options)
 {
 pcre2_real_code *re = (pcre2_real_code *)code;
+#if defined(SUPPORT_JIT) && defined(_MSC_VER) && _MSC_VER < 1700
+executable_functions *functions;
+static int executable_allocator_is_working;
+#endif
 
 if (code == NULL)
   return PCRE2_ERROR_NULL;
@@ -14066,8 +14070,13 @@ actions are needed:
 */
 
 #ifdef SUPPORT_JIT
+#if defined(_MSC_VER) && _MSC_VER < 1700
+functions = (executable_functions *)re->executable_jit;
+executable_allocator_is_working = 0;
+#else
 executable_functions *functions = (executable_functions *)re->executable_jit;
 static int executable_allocator_is_working = 0;
+#endif
 #endif
 
 if ((options & PCRE2_JIT_INVALID_UTF) != 0)
