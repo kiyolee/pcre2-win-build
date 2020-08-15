@@ -4851,7 +4851,7 @@ Returns:    PR_OK     continue processing next line
 static int
 process_command(void)
 {
-FILE *f;
+FILE *f = NULL;
 PCRE2_SIZE serial_size;
 size_t i;
 int rc, cmd, cmdlen, yield;
