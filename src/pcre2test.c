@@ -5082,7 +5082,7 @@ switch(cmd)
   if (srcdir != NULL)
     {
       char fn[256];
-      snprintf(fn, sizeof(fn), "%s/%s", srcdir, argptr+1);
+      snprintf(fn, sizeof(fn), "%s/testdata/%s", srcdir, argptr+1);
       rc = open_file(fn, BINARY_INPUT_MODE, &f, "#loadtables");
     }
   else
