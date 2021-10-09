@@ -17,8 +17,6 @@
 /* #undef HAVE_SECURE_GETENV */
 #define HAVE_STRERROR 1
 
-/* #define PCRE2_STATIC 1 */ /* Defined through project settings. */
-
 #define SUPPORT_PCRE2_8 1
 #define SUPPORT_PCRE2_16 1
 #define SUPPORT_PCRE2_32 1

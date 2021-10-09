@@ -11,7 +11,7 @@ hacked-up (non-) design had also run out of steam.
 
                        Written by Philip Hazel
      Original code Copyright (c) 1997-2012 University of Cambridge
-    Rewritten code Copyright (c) 2016-2020 University of Cambridge
+    Rewritten code Copyright (c) 2016-2021 University of Cambridge
 
 -----------------------------------------------------------------------------
 Redistribution and use in source and binary forms, with or without
@@ -174,10 +174,16 @@ be C99 don't support it (hence DISABLE_PERCENT_ZT). There are some non-C99
 environments where %lu gives a warning with 32-bit pointers. As there doesn't
 seem to be an easy way round this, just live with it (the cases are rare). */
 
-#if defined(_MSC_VER) || !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L || defined(DISABLE_PERCENT_ZT)
-#define PTR_FORM "lu"
+#if (defined(_MSC_VER) && (_MSC_VER < 1900)) || (!defined(_MSC_VER) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L)) || defined(DISABLE_PERCENT_ZT)
+#if defined(_MSC_VER) && defined(_WIN64)
+#define PTR_FORM "lld"
+#define SIZ_FORM "llu"
+#define SIZ_CAST (unsigned long long)
+#else
+#define PTR_FORM "ld"
 #define SIZ_FORM "lu"
 #define SIZ_CAST (unsigned long int)
+#endif
 #else
 #define PTR_FORM "td"
 #define SIZ_FORM "zu"
@@ -622,6 +628,7 @@ static modstruct modlist[] = {
   { "allaftertext",                MOD_PNDP, MOD_CTL, CTL_ALLAFTERTEXT,           PO(control) },
   { "allcaptures",                 MOD_PND,  MOD_CTL, CTL_ALLCAPTURES,            PO(control) },
   { "allow_empty_class",           MOD_PAT,  MOD_OPT, PCRE2_ALLOW_EMPTY_CLASS,    PO(options) },
+  { "allow_lookaround_bsk",        MOD_CTC,  MOD_OPT, PCRE2_EXTRA_ALLOW_LOOKAROUND_BSK, CO(extra_options) },
   { "allow_surrogate_escapes",     MOD_CTC,  MOD_OPT, PCRE2_EXTRA_ALLOW_SURROGATE_ESCAPES, CO(extra_options) },
   { "allusedtext",                 MOD_PNDP, MOD_CTL, CTL_ALLUSEDTEXT,            PO(control) },
   { "allvector",                   MOD_PND,  MOD_CTL, CTL2_ALLVECTOR,             PO(control2) },
