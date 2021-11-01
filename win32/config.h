@@ -3,8 +3,6 @@
 
 /* #undef HAVE_ATTRIBUTE_UNINITIALIZED */
 /* #undef HAVE_DIRENT_H */
-#define HAVE_INTTYPES_H 1    
-#define HAVE_STDINT_H 1                                                   
 #define HAVE_STRERROR 1
 #define HAVE_SYS_STAT_H 1
 #define HAVE_SYS_TYPES_H 1
