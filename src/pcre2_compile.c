@@ -49,6 +49,20 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include "pcre2_internal.h"
 
+/* old VC and older compilers don't support %td or %zu, and even some that
+claim to be C99 don't support it (hence DISABLE_PERCENT_ZT). */
+
+#if defined(DISABLE_PERCENT_ZT) || (defined(_MSC_VER) && (_MSC_VER < 1900)) || \
+  (!defined(_MSC_VER) && (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L))
+#ifdef _WIN64
+#define SIZ_FORM "llu"
+#else
+#define SIZ_FORM "lu"
+#endif
+#else
+#define SIZ_FORM "zu"
+#endif
+
 /* In rare error cases debugging might require calling pcre2_printint(). */
 
 #if 0
@@ -953,7 +967,7 @@ for (;;)
 
     case META_RECURSE:
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "META_RECURSE %d %zd", meta_arg, offset);
+    fprintf(stderr, "META_RECURSE %d %" SIZ_FORM, meta_arg, offset);
     break;
 
     case META_BACKREF:
@@ -961,7 +975,7 @@ for (;;)
       offset = cb->small_ref_offset[meta_arg];
     else
       GETOFFSET(offset, pptr);
-    fprintf(stderr, "META_BACKREF %d %zd", meta_arg, offset);
+    fprintf(stderr, "META_BACKREF %d %" SIZ_FORM, meta_arg, offset);
     break;
 
     case META_ESCAPE:
@@ -1062,19 +1076,19 @@ for (;;)
     case META_LOOKBEHIND:
     fprintf(stderr, "META (?<= %d offset=", meta_arg);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_LOOKBEHIND_NA:
     fprintf(stderr, "META (*naplb: %d offset=", meta_arg);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_LOOKBEHINDNOT:
     fprintf(stderr, "META (?<! %d offset=", meta_arg);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_CALLOUT_NUMBER:
@@ -1089,33 +1103,33 @@ for (;;)
       uint32_t patlength = *pptr++;    /* Length of next pattern item */
       fprintf(stderr, "META (?Cstring) length=%d offset=", *pptr++);
       GETOFFSET(offset, pptr);
-      fprintf(stderr, "%zd next=%d/%d", offset, patoffset, patlength);
+      fprintf(stderr, "%" SIZ_FORM " next=%d/%d", offset, patoffset, patlength);
       }
     break;
 
     case META_RECURSE_BYNAME:
     fprintf(stderr, "META (?(&name) length=%d offset=", *pptr++);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_BACKREF_BYNAME:
     fprintf(stderr, "META_BACKREF_BYNAME length=%d offset=", *pptr++);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_COND_NUMBER:
     fprintf(stderr, "META_COND_NUMBER %d offset=", pptr[SIZEOFFSET]);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     pptr++;
     break;
 
     case META_COND_DEFINE:
     fprintf(stderr, "META (?(DEFINE) offset=");
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_COND_VERSION:
@@ -1127,13 +1141,13 @@ for (;;)
     case META_COND_NAME:
     fprintf(stderr, "META (?(<name>) length=%d offset=", *pptr++);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_COND_RNAME:
     fprintf(stderr, "META (?(R&name) length=%d offset=", *pptr++);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     /* This is kept as a name, because it might be. */
@@ -1141,7 +1155,7 @@ for (;;)
     case META_COND_RNUMBER:
     fprintf(stderr, "META (?(Rnumber) length=%d offset=", *pptr++);
     GETOFFSET(offset, pptr);
-    fprintf(stderr, "%zd", offset);
+    fprintf(stderr, "%" SIZ_FORM, offset);
     break;
 
     case META_MARK:
