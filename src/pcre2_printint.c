@@ -244,8 +244,9 @@ int count = 0;
 const char *yield = "??";
 size_t len = 0;
 unsigned int ptypex = (ptype == PT_SC)? PT_SCX : ptype;
+int i;
 
-for (int i = PRIV(utt_size) - 1; i >= 0; i--)
+for (i = PRIV(utt_size) - 1; i >= 0; i--)
   {
   const ucp_type_table *u = PRIV(utt) + i;
 

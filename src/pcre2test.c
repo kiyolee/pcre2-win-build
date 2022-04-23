@@ -8462,13 +8462,14 @@ int count;
 int maxi = 0;
 const char *maxs = "";
 size_t max = 0;
+int i;
 
 for (count = 0; ff[count] >= 0; count++) {}
 
 /* Find the name to put first. For scripts, any 3-character name is chosen.
 For non-scripts, or if there is no 3-character name, take the longest. */
 
-for (int i = 0; ff[i] >= 0; i++)
+for (i = 0; ff[i] >= 0; i++)
   {
   const char *s = PRIV(utt_names) + ff[i];
   size_t len = strlen(s);
@@ -8493,7 +8494,7 @@ buff += max;
 if (count > 1)
   {
   const char *sep = " (";
-  for (int i = 0; i < count; i++)
+  for (i = 0; i < count; i++)
     {
     if (i == maxi) continue;
     buff += sprintf(buff, "%s%s", sep, PRIV(utt_names) + ff[i]);
@@ -8528,6 +8529,8 @@ int16_t found[256][MAX_SYNONYMS + 1];
 int fc = 0;
 int colwidth = 40;
 int n;
+size_t i, j;
+int k;
 
 if (wantscripts)
   {
@@ -8540,7 +8543,7 @@ else
   typename = "PROPERTIES";
   }
 
-for (size_t i = 0; i < PRIV(utt_size); i++)
+for (i = 0; i < PRIV(utt_size); i++)
   {
   int k;
   int m = 0;
@@ -8569,7 +8572,7 @@ for (size_t i = 0; i < PRIV(utt_size); i++)
   fv = found[fc++];
   fv[m++] = t->name_offset;
 
-  for (size_t j = i + 1; j < PRIV(utt_size); j++)
+  for (j = i + 1; j < PRIV(utt_size); j++)
     {
     const ucp_type_table *tt = PRIV(utt) + j;
     if (tt->type != t->type || tt->value != value) continue;
@@ -8591,7 +8594,7 @@ if (!wantscripts) printf(
 "and the following binary (yes/no) properties:\n\n");
 
 
-for (int k = 0; k < (n+1)/2; k++)
+for (k = 0; k < (n+1)/2; k++)
   {
   int x;
   char buff1[128];
@@ -8621,8 +8624,9 @@ display_one_modifier(modstruct *m, BOOL for_pattern)
 {
 uint32_t c = (!for_pattern && (m->which == MOD_PND || m->which == MOD_PNDP))?
   '*' : ' ';
+size_t i;
 printf("%c%s", c, m->name);
-for (size_t i = 0; i < C1MODLISTCOUNT; i++)
+for (i = 0; i < C1MODLISTCOUNT; i++)
   {
   if (strcmp(m->name, c1modlist[i].fullname) == 0)
     printf(" (%c)", c1modlist[i].onechar);
@@ -8687,8 +8691,9 @@ for (i = 0; i < MODLISTCOUNT; i++)
 
   if (for_pattern == is_pattern)
     {
+    size_t k;
     extra[n] = 0;
-    for (size_t k = 0; k < C1MODLISTCOUNT; k++)
+    for (k = 0; k < C1MODLISTCOUNT; k++)
       {
       if (strcmp(m->name, c1modlist[k].fullname) == 0)
         {

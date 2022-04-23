@@ -5494,6 +5494,7 @@ for (;; pptr++)
   BOOL possessive_quantifier;
   BOOL note_group_empty;
   int class_has_8bitchar;
+  int i;
   uint32_t mclength;
   uint32_t skipunits;
   uint32_t subreqcu, subfirstcu;
@@ -5868,9 +5869,9 @@ for (;; pptr++)
         if (taboffset >= 0)
           {
           if (tabopt >= 0)
-            for (int i = 0; i < 32; i++) pbits[i] |= cbits[(int)i + taboffset];
+            for (i = 0; i < 32; i++) pbits[i] |= cbits[(int)i + taboffset];
           else
-            for (int i = 0; i < 32; i++) pbits[i] &= ~cbits[(int)i + taboffset];
+            for (i = 0; i < 32; i++) pbits[i] &= ~cbits[(int)i + taboffset];
           }
 
         /* Now see if we need to remove any special characters. An option
@@ -5884,9 +5885,9 @@ for (;; pptr++)
         being built and we are done. */
 
         if (local_negate)
-          for (int i = 0; i < 32; i++) classbits[i] |= (uint8_t)(~pbits[i]);
+          for (i = 0; i < 32; i++) classbits[i] |= (uint8_t)(~pbits[i]);
         else
-          for (int i = 0; i < 32; i++) classbits[i] |= pbits[i];
+          for (i = 0; i < 32; i++) classbits[i] |= pbits[i];
 
         /* Every class contains at least one < 256 character. */
 
@@ -5925,22 +5926,22 @@ for (;; pptr++)
         switch(escape)
           {
           case ESC_d:
-          for (int i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_digit];
+          for (i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_digit];
           break;
 
           case ESC_D:
           should_flip_negation = TRUE;
-          for (int i = 0; i < 32; i++)
+          for (i = 0; i < 32; i++)
             classbits[i] |= (uint8_t)(~cbits[i+cbit_digit]);
           break;
 
           case ESC_w:
-          for (int i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_word];
+          for (i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_word];
           break;
 
           case ESC_W:
           should_flip_negation = TRUE;
-          for (int i = 0; i < 32; i++)
+          for (i = 0; i < 32; i++)
             classbits[i] |= (uint8_t)(~cbits[i+cbit_word]);
           break;
 
@@ -5952,12 +5953,12 @@ for (;; pptr++)
           longer treat \s and \S specially. */
 
           case ESC_s:
-          for (int i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_space];
+          for (i = 0; i < 32; i++) classbits[i] |= cbits[i+cbit_space];
           break;
 
           case ESC_S:
           should_flip_negation = TRUE;
-          for (int i = 0; i < 32; i++)
+          for (i = 0; i < 32; i++)
             classbits[i] |= (uint8_t)(~cbits[i+cbit_space]);
           break;
 
@@ -6199,7 +6200,7 @@ for (;; pptr++)
         if (negate_class && !xclass_has_prop)
           {
           /* Using 255 ^ instead of ~ avoids clang sanitize warning. */
-          for (int i = 0; i < 32; i++) classbits[i] = 255 ^ classbits[i];
+          for (i = 0; i < 32; i++) classbits[i] = 255 ^ classbits[i];
           }
         memcpy(code, classbits, 32);
         code = class_uchardata + (32 / sizeof(PCRE2_UCHAR));
@@ -6225,7 +6226,7 @@ for (;; pptr++)
       if (negate_class)
         {
        /* Using 255 ^ instead of ~ avoids clang sanitize warning. */
-       for (int i = 0; i < 32; i++) classbits[i] = 255 ^ classbits[i];
+       for (i = 0; i < 32; i++) classbits[i] = 255 ^ classbits[i];
        }
       memcpy(code, classbits, 32);
       }
@@ -6299,7 +6300,7 @@ for (;; pptr++)
     verbarglen = *(++pptr);
     verbculen = 0;
     tempcode = code++;
-    for (int i = 0; i < (int)verbarglen; i++)
+    for (i = 0; i < (int)verbarglen; i++)
       {
       meta = *(++pptr);
 #ifdef SUPPORT_UNICODE
@@ -6772,6 +6773,7 @@ for (;; pptr++)
       BOOL is_dupname = FALSE;
       named_group *ng = cb->named_groups;
       uint32_t length = *(++pptr);
+      unsigned int i;
 
       GETPLUSOFFSET(offset, pptr);
       name = cb->start_pattern + offset;
@@ -6782,7 +6784,7 @@ for (;; pptr++)
       this name is duplicated. */
 
       groupnumber = 0;
-      for (unsigned int i = 0; i < cb->names_found; i++, ng++)
+      for (i = 0; i < cb->names_found; i++, ng++)
         {
         if (length == ng->length &&
             PRIV(strncmp)(name, ng->name, length) == 0)
@@ -7141,7 +7143,7 @@ for (;; pptr++)
           *lengthptr += delta;
           }
 
-        else for (int i = 0; i < replicate; i++)
+        else for (i = 0; i < replicate; i++)
           {
           memcpy(code, previous, CU2BYTES(1 + LINK_SIZE));
           previous = code;
@@ -7317,12 +7319,13 @@ for (;; pptr++)
 
             else
               {
+              uint32_t i;
               if (groupsetfirstcu && reqcuflags >= REQ_NONE)
                 {
                 reqcu = firstcu;
                 reqcuflags = firstcuflags;
                 }
-              for (uint32_t i = 1; i < repeat_min; i++)
+              for (i = 1; i < repeat_min; i++)
                 {
                 memcpy(code, previous, CU2BYTES(len));
                 code += len;
@@ -7342,6 +7345,7 @@ for (;; pptr++)
 
         if (repeat_max != REPEAT_UNLIMITED)
           {
+          uint32_t i;
           /* In the pre-compile phase, we don't actually do the replication. We
           just adjust the length as if we had. For each repetition we must add
           1 to the length for BRAZERO and for all but the last repetition we
@@ -7366,7 +7370,7 @@ for (;; pptr++)
 
           /* This is compiling for real */
 
-          else for (uint32_t i = repeat_max; i >= 1; i--)
+          else for (i = repeat_max; i >= 1; i--)
             {
             *code++ = OP_BRAZERO + repeat_type;
 
