@@ -1840,6 +1840,7 @@ int first = -1;
 int firstrc = 0;
 patstr *p = patterns;
 const char *msg = "this text:\n\n";
+int i;
 
 if (slen > 200)
   {
@@ -1847,7 +1848,7 @@ if (slen > 200)
   msg = "text that starts:\n\n";
   }
 
-for (int i = 1; p != NULL; p = p->next, i++)
+for (i = 1; p != NULL; p = p->next, i++)
   {
   int rc = pcre2_match(p->compiled, (PCRE2_SPTR)matchptr, (int)length,
     startoffset, options, match_data, match_context);
@@ -2227,7 +2228,8 @@ for (; *string != 0; string++)
   if (!utf || value <= 127) fprintf(stdout, "%c", value); else
     {
     int n = ord2utf8(value);
-    for (int i = 0; i < n; i++) fputc(utf8_buffer[i], stdout);
+    int i;
+    for (i = 0; i < n; i++) fputc(utf8_buffer[i], stdout);
     }
 
   printed = TRUE;
