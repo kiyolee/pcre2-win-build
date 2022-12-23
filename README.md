@@ -2,7 +2,7 @@
 
 pcre2 Windows build with Visual Studio.
 
-This version is pcre2-10.40.
+This version is pcre2-10.41.
 
 To build, simply open the required solution file, and
 you know how to use Visual Studio, right?
