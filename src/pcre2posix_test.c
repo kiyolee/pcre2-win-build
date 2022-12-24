@@ -123,10 +123,11 @@ int main(int argc, char **argv)
 regex_t re;
 regmatch_t match[CAPCOUNT];
 int v = argc > 1 && strcmp(argv[1], "-v") == 0;
+int i;
 
 PRINTF("Test of pcre2posix.h without pcre2.h\n");
 
-for (int i = 0; i < count; i++)
+for (i = 0; i < count; i++)
   {
   char *pattern = data[i][0];
   char **subjects = data[i] + 1;
@@ -171,7 +172,8 @@ for (int i = 0; i < count; i++)
 
     if (rc == 0)
       {
-      for (int j = 0; j < CAPCOUNT; j++)
+      int j;
+      for (j = 0; j < CAPCOUNT; j++)
         {
         regmatch_t *m = match + j;
         if (m->rm_so < 0) continue;
