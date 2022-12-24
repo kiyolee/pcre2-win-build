@@ -1,0 +1,40 @@
+#include <winver.h>
+#include "pcre2_version.h"
+
+#ifdef GCC_WINDRES
+VS_VERSION_INFO		VERSIONINFO
+#else
+VS_VERSION_INFO		VERSIONINFO	MOVEABLE IMPURE LOADONCALL DISCARDABLE
+#endif
+  FILEVERSION		PCRE2_VER_MAJOR,PCRE2_VER_MINOR,PCRE2_VER_REVISION,0
+  PRODUCTVERSION	PCRE2_VER_MAJOR,PCRE2_VER_MINOR,PCRE2_VER_REVISION,0
+  FILEFLAGSMASK		VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+  FILEFLAGS		1
+#else
+  FILEFLAGS		0
+#endif
+  FILEOS		VOS__WINDOWS32
+  FILETYPE		VFT_APP
+  FILESUBTYPE		0	// not used
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    //language ID = U.S. English, char set = Windows, Multilingual
+    BEGIN
+      VALUE "FileDescription",	"pcre2grep for Windows\0"
+      VALUE "FileVersion",	PCRE2_VERSION_STR "\0"
+      VALUE "InternalName",	"pcre2grep.exe\0"
+      VALUE "LegalCopyright",	"Copyright (c) 1997-2022 University of Cambridge.\0"
+      VALUE "OriginalFilename",	"pcre2grep.exe\0"
+      VALUE "ProductName",	"PCRE2\0"
+      VALUE "ProductVersion",	PCRE2_VERSION_STR "\0"
+      VALUE "Comments",		"For more information visit <http://pcre.org/>. Alternative build from <https://github.com/kiyolee/pcre2-win-build/>.\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 1252
+  END
+END

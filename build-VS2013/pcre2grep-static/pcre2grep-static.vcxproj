@@ -97,6 +97,9 @@
     <ClInclude Include="..\..\include\pcre2.h" />
     <ClInclude Include="..\..\win32\config.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\win32\pcre2grep.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
