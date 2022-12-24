@@ -8,7 +8,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;..\..\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setargv.obj;$(OutDir)libpcre2-8.lib;$(OutDir)libpcre2-16.lib;$(OutDir)libpcre2-32.lib;$(OutDir)libpcre2-posix.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -17,7 +17,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;..\..\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setargv.obj;$(OutDir)libpcre2-8.lib;$(OutDir)libpcre2-16.lib;$(OutDir)libpcre2-32.lib;$(OutDir)libpcre2-posix.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -26,7 +26,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;..\..\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setargv.obj;$(OutDir)libpcre2-8.lib;$(OutDir)libpcre2-16.lib;$(OutDir)libpcre2-32.lib;$(OutDir)libpcre2-posix.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -35,7 +35,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H;_CRT_SECURE_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\win32;..\..\..\include;..\..\..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>setargv.obj;$(OutDir)libpcre2-8.lib;$(OutDir)libpcre2-16.lib;$(OutDir)libpcre2-32.lib;$(OutDir)libpcre2-posix.lib;%(AdditionalDependencies)</AdditionalDependencies>
