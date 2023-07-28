@@ -89,7 +89,7 @@ will break and the relevant values must be provided by some other means. */
 
 #include <limits.h>
 #include <stdlib.h>
-#if defined(_MSC_VER) && _MSC_VER < 1700
+#if defined(_MSC_VER) && _MSC_VER <= 1700
 #include <stdint.h>
 #else
 #include <inttypes.h>
