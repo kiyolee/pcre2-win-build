@@ -51,7 +51,7 @@
 #define PCRE2GREP_BUFSIZE       20480
 #define PCRE2GREP_MAX_BUFSIZE   1048576
 
-#define MAX_NAME_SIZE	32
+#define MAX_NAME_SIZE	128
 #define MAX_NAME_COUNT	10000
 
 /* end config.h for CMake builds */
