@@ -311,7 +311,7 @@ if %jit% EQU 1 call :runsub 1 testoutjit "Test with JIT Override" -q -jit
 goto :eof
 
 :do2
-  copy /y %srcdir%\testdata\testbtables testbtables 
+  copy /y %srcdir%\testdata\testbtables testbtables
   call :runsub 2 testout "API, errors, internals, and non-Perl stuff" -q
   if %jit% EQU 1 call :runsub 2 testoutjit "Test with JIT Override" -q -jit
 goto :eof
