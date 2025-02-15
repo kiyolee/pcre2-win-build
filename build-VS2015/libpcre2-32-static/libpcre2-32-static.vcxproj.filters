@@ -108,6 +108,9 @@
     <ClCompile Include="..\..\src\pcre2_chkdint.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\pcre2_compile_class.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\pcre2.h">
