@@ -695,7 +695,7 @@ echo RC=^%ERRORLEVEL%>>testtrygrep
 echo ---------------------------- Test 132 ----------------------------->>testtrygrep
 :: The Unix tests use fd3 here, but Windows only has StdIn/StdOut/StdErr (which, at the kernel
 :: level, are not even numbered). Use a subshell instead.
-(pushd %srcdir% & (%pcre2grep% -m1 -A3 "^match" & echo ---& %pcre2grep% -m1 ".*") <testdata/grepinput & popd) >>testtrygrep 2>&1
+(pushd %srcdir% & (%pcre2grep% -m1 -A3 "^match" & echo ---& %pcre2grep% -m1 ".") <testdata/grepinput & popd) >>testtrygrep 2>&1
 echo RC=^%ERRORLEVEL%>>testtrygrep
 
 echo ---------------------------- Test 133 ----------------------------->>testtrygrep
