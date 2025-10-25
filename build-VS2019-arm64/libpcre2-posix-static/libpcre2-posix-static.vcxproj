@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\pcre2.h" />
-    <ClInclude Include="..\..\src\pcre2posix.h" />
+    <ClInclude Include="..\..\include\pcre2posix.h" />
     <ClInclude Include="..\..\win32\config.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

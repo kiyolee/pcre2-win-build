@@ -29,8 +29,8 @@
     <ClInclude Include="..\..\include\pcre2.h">
       <Filter>Header Files\include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\pcre2posix.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\include\pcre2posix.h">
+      <Filter>Header Files\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\win32\config.h">
       <Filter>Header Files\win32</Filter>

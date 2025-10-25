@@ -12,11 +12,8 @@
 /* #undef HAVE_UNISTD_H */
 #define HAVE_WINDOWS_H 1
 
-/* #undef HAVE_BCOPY */
 /* #undef HAVE_MEMFD_CREATE */
-#define HAVE_MEMMOVE 1
 /* #undef HAVE_SECURE_GETENV */
-#define HAVE_STRERROR 1
 
 #define SUPPORT_PCRE2_8 1
 #define SUPPORT_PCRE2_16 1
@@ -39,7 +36,7 @@
 /* #undef BSR_ANYCRLF */
 /* #undef EBCDIC */
 /* #undef EBCDIC_NL25 */
-/* #undef HEAP_MATCH_RECURSE */
+/* #undef EBCDIC_IGNORING_COMPILER */
 /* #undef NEVER_BACKSLASH_C */
 
 #define PCRE2_EXPORT            
@@ -53,7 +50,7 @@
 #define PCRE2GREP_BUFSIZE       20480
 #define PCRE2GREP_MAX_BUFSIZE   1048576
 
-#define MAX_NAME_SIZE	128
-#define MAX_NAME_COUNT	10000
+#define MAX_NAME_SIZE           128
+#define MAX_NAME_COUNT          10000
 
 /* end config.h for CMake builds */
