@@ -14,10 +14,10 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Header Files\include">
-      <UniqueIdentifier>{cfc2ba34-f1f4-4447-9264-1b12b55e19d8}</UniqueIdentifier>
+      <UniqueIdentifier>{6773a34a-22ad-43f4-abef-4ab139bda692}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\win32">
-      <UniqueIdentifier>{a4b398ee-5d7d-4d98-9911-dfe29011c5f1}</UniqueIdentifier>
+      <UniqueIdentifier>{8a5b6feb-68c1-44b9-b050-6a1024d2a678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

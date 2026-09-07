@@ -14,13 +14,13 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Source Files\win32">
-      <UniqueIdentifier>{058e7da3-0907-49b1-a487-e2ef6cab44f3}</UniqueIdentifier>
+      <UniqueIdentifier>{3c0262e2-209c-47bd-8350-0d63f62547b2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\include">
-      <UniqueIdentifier>{fbfccea6-20ed-4dde-bec0-7ee08c28e079}</UniqueIdentifier>
+      <UniqueIdentifier>{3808656a-f736-40a7-a2fa-703e1b45fa2c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\win32">
-      <UniqueIdentifier>{c4dcdc5f-5119-46c5-afe2-49396f882933}</UniqueIdentifier>
+      <UniqueIdentifier>{ab2e3d9d-e9c8-46c6-a4ba-b74afdc7f34b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
