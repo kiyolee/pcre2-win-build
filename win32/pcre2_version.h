@@ -1,4 +1,4 @@
-#define PCRE2_VERSION_STR   "10.48"
+#define PCRE2_VERSION_STR   "10.49"
 #define PCRE2_VER_MAJOR     10
-#define PCRE2_VER_MINOR     48
+#define PCRE2_VER_MINOR     49
 #define PCRE2_VER_REVISION  0
